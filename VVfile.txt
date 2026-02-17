@@ -716,7 +716,7 @@
 </div>
 </div>
 <div class="menu-item-order">
-<a href="https://wa.me/918374856927?text=I'd like to order Puri with Chicken curry" class="btn">Order Now</a>
+<a href="https://wa.me/918712204561?text=I'd like to order Puri with Chicken curry" class="btn">Order Now</a>
 </div>
 </div>
 </div>
@@ -1046,4 +1046,5 @@
        });
 </script>
 </body>
+
 </html>
