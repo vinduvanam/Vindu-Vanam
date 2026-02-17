@@ -752,7 +752,7 @@
 </div>
 </div>
 <div class="menu-item-order">
-<a href="https://wa.me/918374856927?text=I'd like to order Chicken 65" class="btn">Order Now</a>
+<a href="https://wa.me/918712204561?text=I'd like to order Chicken 65" class="btn">Order Now</a>
 </div>
 </div>
 </div>
@@ -790,7 +790,7 @@
 </div>
 </div>
 <div class="menu-item-order">
-<a href="https://wa.me/918374856927?text=I'd like to order Idly with Chicken Curry" class="btn">Order Now</a>
+<a href="https://wa.me/918712204561?text=I'd like to order Idly with Chicken Curry" class="btn">Order Now</a>
 </div>
 </div>
 </div>
@@ -822,7 +822,7 @@
 </div>
 </div>
 <div class="menu-item-order">
-<a href="https://wa.me/918374856927?text=I'd like to order Dosa with Chicken Curry" class="btn">Order Now</a>
+<a href="https://wa.me/918712204561?text=I'd like to order Dosa with Chicken Curry" class="btn">Order Now</a>
 </div>
 </div>
 </div>
@@ -899,7 +899,7 @@
 <div class="order-step">
 <i class="fas fa-phone-alt"></i>
 <h3>Call or WhatsApp</h3>
-<p>Place your order by calling or messaging us on WhatsApp at +91 8374856927</p>
+<p>Place your order by calling or messaging us on WhatsApp at +91 8712204561</p>
 </div>
 <div class="order-step">
 <i class="fas fa-truck"></i>
@@ -925,7 +925,7 @@
 <h3>Get In Touch</h3>
 <div class="contact-detail">
 <i class="fas fa-phone"></i>
-<span>+91 8374856927</span>
+<span>+91 8712204561</span>
 </div>
 <div class="contact-detail">
 <i class="fas fa-map-marker-alt"></i>
@@ -974,7 +974,7 @@
 <div class="footer-section">
 <h3>Contact Info</h3>
 <ul class="footer-links">
-<li><i class="fas fa-phone"></i> +91 8374856927</li>
+<li><i class="fas fa-phone"></i> +91 8712204561</li>
 <li><i class="fas fa-map-marker-alt"></i> Nellore, AP</li>
 <li><i class="fas fa-clock"></i> 8:00 AM - 10:00 PM</li>
 </ul>
@@ -1048,3 +1048,4 @@
 </body>
 
 </html>
+
