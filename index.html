@@ -12,7 +12,7 @@
 :root{
 --primary:#6b8e23;
 --secondary:#3e2723;
---light:#f4f1ea;
+--light:#fdfaf4;
 --gold:#c6a75e;
 --veg:#2e7d32;
 --nonveg:#c62828;
@@ -24,16 +24,49 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
 body{background:var(--light);}
 
+/* HEADER */
 header{
 background:var(--secondary);
 color:white;
-padding:20px;
-text-align:center;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo img{
+width:60px;
+height:60px;
+border-radius:50%;
 }
 
 header h1{
 font-family:'Playfair Display';
 color:var(--gold);
+font-size:24px;
+}
+
+/* HERO */
+.hero{
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+url("https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=1600&q=80");
+background-size:cover;
+background-position:center;
+color:white;
+text-align:center;
+padding:100px 20px;
+}
+
+.hero h2{
+font-size:42px;
+font-family:'Playfair Display';
+margin-bottom:15px;
 }
 
 .container{max-width:1200px;margin:auto;padding:20px;}
@@ -58,10 +91,20 @@ margin-top:20px;
 
 .card{
 background:white;
-border-radius:10px;
-padding:15px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 6px 18px rgba(0,0,0,0.1);
 position:relative;
+}
+
+.card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+.card-content{
+padding:15px;
 }
 
 .badge{
@@ -87,20 +130,16 @@ border-radius:6px;
 margin:10px 0;
 }
 
-.filters{
-margin:15px 0;
-}
-
 .highlight-section{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 gap:10px;
-margin:20px 0;
+margin:30px 0;
 }
 
 .highlight{
 background:white;
-padding:10px;
+padding:12px;
 border-radius:8px;
 text-align:center;
 font-size:13px;
@@ -130,6 +169,26 @@ padding:8px;
 margin-bottom:8px;
 }
 
+.contact{
+background:var(--secondary);
+color:white;
+padding:40px 20px;
+margin-top:40px;
+}
+
+.contact h3{
+color:var(--gold);
+margin-bottom:15px;
+}
+
+iframe{
+width:100%;
+height:300px;
+border:none;
+border-radius:10px;
+margin-top:15px;
+}
+
 .login-box{
 display:none;
 position:fixed;
@@ -146,42 +205,38 @@ box-shadow:0 5px 20px rgba(0,0,0,0.3);
 <body>
 
 <header>
-<h1>🌿 Vindu Vanam</h1>
-<p>Traditional Telugu Food with Balanced Nutrition</p>
-<button onclick="showLogin()">Admin Login</button>
+<div class="logo">
+<img src="https://i.postimg.cc/jjCmNtZn/Image.png">
+<h1>Vindu Vanam</h1>
+</div>
+<button onclick="showLogin()">Admin</button>
 </header>
+
+<section class="hero">
+<h2>Traditional Telugu Food with Modern Nutrition</h2>
+<p>Balanced Carbs • High Protein • Good Fats • Authentic Taste</p>
+</section>
 
 <div class="container">
 
 <h2>Our Menu</h2>
 
-<!-- Nutrition Highlights -->
 <div class="highlight-section">
 <div class="highlight">💪 Protein Rich</div>
 <div class="highlight">🐟 Omega 3 Rich</div>
-<div class="highlight">⚖️ Balanced Macros</div>
-<div class="highlight">🌾 Fibre Rich Stuffed</div>
-<div class="highlight">🧂 Calcium • Magnesium Rich</div>
-<div class="highlight">🍔 Cheat Meals Available</div>
-</div>
-
-<!-- Filters -->
-<div class="filters">
-<button onclick="setFilter('all')">All</button>
-<button onclick="setFilter('veg')">Veg</button>
-<button onclick="setFilter('nonveg')">Non Veg</button>
-<button onclick="setFilter('protein')">High Protein</button>
-<button onclick="setFilter('lowcal')">Low Calorie</button>
-<button onclick="setFilter('cheat')">Cheat Meals</button>
+<div class="highlight">⚖ Balanced Macros</div>
+<div class="highlight">🌾 Fibre Rich</div>
+<div class="highlight">🧂 Mineral Rich</div>
+<div class="highlight">🍔 Cheat Meals</div>
 </div>
 
 <div class="menu-grid" id="menuGrid"></div>
 
 <div class="cart-summary">
 <h3>🛒 Cart Macro Summary</h3>
-<p>Total Calories: <span id="totalCal">0</span> kcal</p>
-<p>Total Protein: <span id="totalProtein">0</span> g</p>
-<p>Total Fats: <span id="totalFats">0</span> g</p>
+<p>Calories: <span id="totalCal">0</span></p>
+<p>Protein: <span id="totalProtein">0</span>g</p>
+<p>Fats: <span id="totalFats">0</span>g</p>
 </div>
 
 <!-- Admin Panel -->
@@ -189,100 +244,98 @@ box-shadow:0 5px 20px rgba(0,0,0,0.3);
 <h3>Add / Edit Item</h3>
 <input type="hidden" id="editIndex">
 <input type="text" id="name" placeholder="Item Name">
+<input type="text" id="image" placeholder="Image URL">
 <input type="number" id="price" placeholder="Price">
 <select id="type">
 <option value="veg">Veg</option>
 <option value="nonveg">Non Veg</option>
 </select>
 <input type="number" id="calories" placeholder="Calories">
-<input type="number" id="protein" placeholder="Protein (g)">
-<input type="number" id="fats" placeholder="Fats (g)">
-<select id="cheat">
-<option value="false">Normal Meal</option>
-<option value="true">Cheat Meal</option>
-</select>
-<button class="btn-primary" onclick="saveItem()">Save</button>
+<input type="number" id="protein" placeholder="Protein">
+<input type="number" id="fats" placeholder="Fats">
+<button onclick="saveItem()" class="btn-primary">Save</button>
 </div>
 
+</div>
+
+<!-- CONTACT -->
+<div class="contact">
+<div class="container">
+<h3>Contact Us</h3>
+<p>📞 +91 8712204561</p>
+<p>📍 Nellore, Andhra Pradesh</p>
+<p>🕒 8:00 AM – 10:00 PM</p>
+<p>💬 <a href="https://wa.me/918712204561" style="color:white;">Order on WhatsApp</a></p>
+
+<iframe src="https://www.google.com/maps?q=Nellore,Andhra+Pradesh&output=embed"></iframe>
+</div>
 </div>
 
 <div class="login-box" id="loginBox">
 <h3>Admin Login</h3>
-<input type="password" id="adminPass" placeholder="Enter Password">
+<input type="password" id="adminPass" placeholder="Password">
 <button onclick="login()">Login</button>
 </div>
 
 <script>
 let menu = JSON.parse(localStorage.getItem("menuData")) || [
-{name:"Chicken 65",price:180,type:"nonveg",calories:420,protein:32,fats:18,cheat:true},
-{name:"Grilled Chicken",price:220,type:"nonveg",calories:350,protein:40,fats:10,cheat:false},
-{name:"Paneer Stuffed Roti",price:150,type:"veg",calories:300,protein:18,fats:9,cheat:false}
+{name:"Chicken 65",image:"https://paattiskitchen.com/wp-content/uploads/2023/05/kmc_20230501_131310.jpg",price:180,type:"nonveg",calories:420,protein:32,fats:18},
+{name:"Paneer Roti",image:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",price:150,type:"veg",calories:300,protein:18,fats:9}
 ];
 
-let cart=[]; 
-let activeFilter="all";
+let cart=[];
 
 function renderMenu(){
 let grid=document.getElementById("menuGrid");
 grid.innerHTML="";
 menu.forEach((item,index)=>{
-
-if(activeFilter=="veg" && item.type!="veg") return;
-if(activeFilter=="nonveg" && item.type!="nonveg") return;
-if(activeFilter=="protein" && item.protein<25) return;
-if(activeFilter=="lowcal" && item.calories>350) return;
-if(activeFilter=="cheat" && item.cheat!=true) return;
-
 grid.innerHTML+=`
 <div class="card">
+<img src="${item.image}">
 <div class="badge ${item.type}">${item.type.toUpperCase()}</div>
+<div class="card-content">
 <h3>${item.name}</h3>
 <p>₹${item.price}</p>
 <div class="nutrition">
 <span>🔥 ${item.calories}</span>
-<span>💪 ${item.protein}g</span>
-<span>🥑 ${item.fats}g</span>
+<span>💪 ${item.protein}</span>
+<span>🥑 ${item.fats}</span>
 </div>
-<button class="btn-cart" onclick="addToCart(${index})">Add to Cart</button>
+<button class="btn-cart" onclick="addToCart(${index})">Add</button>
 <button onclick="editItem(${index})">Edit</button>
 <button onclick="deleteItem(${index})">Delete</button>
+</div>
 </div>`;
 });
 }
 
-function setFilter(filter){
-activeFilter=filter;
-renderMenu();
-}
-
-function addToCart(index){
-cart.push(menu[index]);
+function addToCart(i){
+cart.push(menu[i]);
 updateCart();
 }
 
 function updateCart(){
-let totalCal=0,totalProtein=0,totalFats=0;
+let c=0,p=0,f=0;
 cart.forEach(i=>{
-totalCal+=Number(i.calories);
-totalProtein+=Number(i.protein);
-totalFats+=Number(i.fats);
+c+=Number(i.calories);
+p+=Number(i.protein);
+f+=Number(i.fats);
 });
-document.getElementById("totalCal").innerText=totalCal;
-document.getElementById("totalProtein").innerText=totalProtein;
-document.getElementById("totalFats").innerText=totalFats;
+totalCal.innerText=c;
+totalProtein.innerText=p;
+totalFats.innerText=f;
 }
 
 function saveItem(){
 let item={
 name:name.value,
+image:image.value,
 price:price.value,
 type:type.value,
 calories:calories.value,
 protein:protein.value,
-fats:fats.value,
-cheat:(cheat.value==="true")
+fats:fats.value
 };
-
 if(editIndex.value===""){
 menu.push(item);
 }else{
@@ -292,20 +345,20 @@ localStorage.setItem("menuData",JSON.stringify(menu));
 renderMenu();
 }
 
-function editItem(index){
-let i=menu[index];
-editIndex.value=index;
-name.value=i.name;
-price.value=i.price;
-type.value=i.type;
-calories.value=i.calories;
-protein.value=i.protein;
-fats.value=i.fats;
-cheat.value=i.cheat;
+function editItem(i){
+let m=menu[i];
+editIndex.value=i;
+name.value=m.name;
+image.value=m.image;
+price.value=m.price;
+type.value=m.type;
+calories.value=m.calories;
+protein.value=m.protein;
+fats.value=m.fats;
 }
 
-function deleteItem(index){
-menu.splice(index,1);
+function deleteItem(i){
+menu.splice(i,1);
 localStorage.setItem("menuData",JSON.stringify(menu));
 renderMenu();
 }
@@ -318,9 +371,7 @@ function login(){
 if(adminPass.value==="admin123"){
 loginBox.style.display="none";
 adminPanel.style.display="block";
-}else{
-alert("Wrong Password");
-}
+}else alert("Wrong Password");
 }
 
 renderMenu();
