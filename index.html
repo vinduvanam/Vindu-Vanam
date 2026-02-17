@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vindu Vanam | Traditional Healthy Food</title>
+<title>Vindu Vanam | Traditional Mountain Food</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 :root{
---primary:#6b8e23;
---secondary:#3e2723;
---light:#fdfaf4;
---gold:#c6a75e;
+--wood-dark:#4e342e;
+--wood-light:#8d6e63;
+--cream:#fdf8f3;
+--gold:#d4af37;
 --veg:#2e7d32;
 --nonveg:#c62828;
 --protein:#1565c0;
@@ -22,11 +22,16 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
-body{background:var(--light);}
+body{
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80");
+background-size:cover;
+background-attachment:fixed;
+color:#333;
+}
 
-/* HEADER */
 header{
-background:var(--secondary);
+background:var(--wood-dark);
 color:white;
 padding:15px 30px;
 display:flex;
@@ -44,6 +49,7 @@ gap:10px;
 width:60px;
 height:60px;
 border-radius:50%;
+border:2px solid var(--gold);
 }
 
 header h1{
@@ -52,10 +58,9 @@ color:var(--gold);
 font-size:24px;
 }
 
-/* HERO */
 .hero{
-background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-url("https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=1600&q=80");
+background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+url("https://images.unsplash.com/photo-1523986371872-9d3ba2e2c7a3?auto=format&fit=crop&w=1600&q=80");
 background-size:cover;
 background-position:center;
 color:white;
@@ -69,7 +74,20 @@ font-family:'Playfair Display';
 margin-bottom:15px;
 }
 
-.container{max-width:1200px;margin:auto;padding:20px;}
+.container{
+max-width:1200px;
+margin:40px auto;
+background:rgba(255,255,255,0.95);
+padding:30px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+h2{
+font-family:'Playfair Display';
+color:var(--wood-dark);
+margin-bottom:20px;
+}
 
 button{
 padding:6px 12px;
@@ -79,23 +97,25 @@ border-radius:6px;
 margin:3px;
 }
 
-.btn-primary{background:var(--primary);color:white;}
+.btn-primary{background:var(--wood-dark);color:white;}
 .btn-cart{background:var(--protein);color:white;}
 
 .menu-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:20px;
-margin-top:20px;
 }
 
 .card{
 background:white;
 border-radius:12px;
 overflow:hidden;
-box-shadow:0 6px 18px rgba(0,0,0,0.1);
+box-shadow:0 6px 18px rgba(0,0,0,0.15);
 position:relative;
+transition:0.3s;
 }
+
+.card:hover{transform:translateY(-5px);}
 
 .card img{
 width:100%;
@@ -103,9 +123,7 @@ height:200px;
 object-fit:cover;
 }
 
-.card-content{
-padding:15px;
-}
+.card-content{padding:15px;}
 
 .badge{
 position:absolute;
@@ -124,7 +142,7 @@ color:white;
 display:flex;
 justify-content:space-between;
 font-size:13px;
-background:#f9f6f0;
+background:#f4ede7;
 padding:8px;
 border-radius:6px;
 margin:10px 0;
@@ -134,59 +152,52 @@ margin:10px 0;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 gap:10px;
-margin:30px 0;
+margin:20px 0;
 }
 
 .highlight{
-background:white;
+background:#f4ede7;
 padding:12px;
 border-radius:8px;
 text-align:center;
 font-size:13px;
-box-shadow:0 3px 10px rgba(0,0,0,0.08);
 }
 
 .cart-summary{
-background:white;
+background:#f4ede7;
 padding:15px;
 margin-top:20px;
 border-radius:10px;
-box-shadow:0 4px 12px rgba(0,0,0,0.1);
-}
-
-.admin-panel{
-display:none;
-background:white;
-padding:20px;
-margin-top:20px;
-border-radius:10px;
-box-shadow:0 4px 12px rgba(0,0,0,0.1);
-}
-
-.admin-panel input,select{
-width:100%;
-padding:8px;
-margin-bottom:8px;
 }
 
 .contact{
-background:var(--secondary);
+background:var(--wood-dark);
 color:white;
 padding:40px 20px;
 margin-top:40px;
 }
 
-.contact h3{
-color:var(--gold);
-margin-bottom:15px;
-}
-
+.contact h3{color:var(--gold);}
 iframe{
 width:100%;
 height:300px;
 border:none;
 border-radius:10px;
 margin-top:15px;
+}
+
+.admin-panel{
+display:none;
+background:#f4ede7;
+padding:20px;
+margin-top:20px;
+border-radius:10px;
+}
+
+.admin-panel input,select{
+width:100%;
+padding:8px;
+margin-bottom:8px;
 }
 
 .login-box{
@@ -213,8 +224,8 @@ box-shadow:0 5px 20px rgba(0,0,0,0.3);
 </header>
 
 <section class="hero">
-<h2>Traditional Telugu Food with Modern Nutrition</h2>
-<p>Balanced Carbs • High Protein • Good Fats • Authentic Taste</p>
+<h2>Traditional Mountain Picnic Food Experience</h2>
+<p>Wood Fired Taste • Balanced Nutrition • Nature Inspired Dining</p>
 </section>
 
 <div class="container">
@@ -239,7 +250,6 @@ box-shadow:0 5px 20px rgba(0,0,0,0.3);
 <p>Fats: <span id="totalFats">0</span>g</p>
 </div>
 
-<!-- Admin Panel -->
 <div class="admin-panel" id="adminPanel">
 <h3>Add / Edit Item</h3>
 <input type="hidden" id="editIndex">
@@ -258,7 +268,6 @@ box-shadow:0 5px 20px rgba(0,0,0,0.3);
 
 </div>
 
-<!-- CONTACT -->
 <div class="contact">
 <div class="container">
 <h3>Contact Us</h3>
@@ -266,7 +275,6 @@ box-shadow:0 5px 20px rgba(0,0,0,0.3);
 <p>📍 Nellore, Andhra Pradesh</p>
 <p>🕒 8:00 AM – 10:00 PM</p>
 <p>💬 <a href="https://wa.me/918712204561" style="color:white;">Order on WhatsApp</a></p>
-
 <iframe src="https://www.google.com/maps?q=Nellore,Andhra+Pradesh&output=embed"></iframe>
 </div>
 </div>
@@ -279,8 +287,17 @@ box-shadow:0 5px 20px rgba(0,0,0,0.3);
 
 <script>
 let menu = JSON.parse(localStorage.getItem("menuData")) || [
-{name:"Chicken 65",image:"https://paattiskitchen.com/wp-content/uploads/2023/05/kmc_20230501_131310.jpg",price:180,type:"nonveg",calories:420,protein:32,fats:18},
-{name:"Paneer Roti",image:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",price:150,type:"veg",calories:300,protein:18,fats:9}
+
+{name:"Peanut Masala 100gms",image:"https://images.unsplash.com/photo-1612197522455-8a0b1cfa3c5f",price:60,type:"veg",calories:280,protein:12,fats:18},
+
+{name:"3 Idly with Chicken Curry 100gms",image:"https://tse1.mm.bing.net/th/id/OIP.5U9QJ9gZvGQ2uBOD3M6GnAHaE8",price:120,type:"nonveg",calories:380,protein:28,fats:12},
+
+{name:"2 Dosa with Chicken Curry 100gms",image:"https://i.pinimg.com/originals/e9/0c/fd/e90cfdcdac6d30517bf081cf1a90f200.jpg",price:130,type:"nonveg",calories:420,protein:30,fats:14},
+
+{name:"Pomegranate with Apple & Papaya",image:"https://images.unsplash.com/photo-1574226516831-e1dff420e8f8",price:90,type:"veg",calories:150,protein:3,fats:1},
+
+{name:"Guava Special",image:"https://images.unsplash.com/photo-1584270354949-1a0f10c5a21d",price:70,type:"veg",calories:120,protein:2,fats:1}
+
 ];
 
 let cart=[];
@@ -327,34 +344,37 @@ totalFats.innerText=f;
 }
 
 function saveItem(){
-let item={
-name:name.value,
-image:image.value,
-price:price.value,
-type:type.value,
-calories:calories.value,
-protein:protein.value,
-fats:fats.value
-};
-if(editIndex.value===""){
-menu.push(item);
-}else{
-menu[editIndex.value]=item;
-}
+const nameVal=document.getElementById("name").value.trim();
+const imageVal=document.getElementById("image").value.trim();
+const priceVal=document.getElementById("price").value;
+const typeVal=document.getElementById("type").value;
+const caloriesVal=document.getElementById("calories").value;
+const proteinVal=document.getElementById("protein").value;
+const fatsVal=document.getElementById("fats").value;
+const editIndexVal=document.getElementById("editIndex").value;
+
+if(nameVal===""){alert("Name required");return;}
+
+const item={name:nameVal,image:imageVal,price:priceVal,type:typeVal,calories:caloriesVal,protein:proteinVal,fats:fatsVal};
+
+if(editIndexVal===""){menu.push(item);}
+else{menu[editIndexVal]=item;}
+
 localStorage.setItem("menuData",JSON.stringify(menu));
+document.getElementById("editIndex").value="";
 renderMenu();
 }
 
 function editItem(i){
-let m=menu[i];
-editIndex.value=i;
-name.value=m.name;
-image.value=m.image;
-price.value=m.price;
-type.value=m.type;
-calories.value=m.calories;
-protein.value=m.protein;
-fats.value=m.fats;
+const m=menu[i];
+document.getElementById("editIndex").value=i;
+document.getElementById("name").value=m.name;
+document.getElementById("image").value=m.image;
+document.getElementById("price").value=m.price;
+document.getElementById("type").value=m.type;
+document.getElementById("calories").value=m.calories;
+document.getElementById("protein").value=m.protein;
+document.getElementById("fats").value=m.fats;
 }
 
 function deleteItem(i){
@@ -363,10 +383,7 @@ localStorage.setItem("menuData",JSON.stringify(menu));
 renderMenu();
 }
 
-function showLogin(){
-loginBox.style.display="block";
-}
-
+function showLogin(){loginBox.style.display="block";}
 function login(){
 if(adminPass.value==="admin123"){
 loginBox.style.display="none";
