@@ -9,23 +9,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-
-/* ================= WOOD THEME ================= */
-
 :root{
 --wood-dark:#3e2723;
 --wood:#5d4037;
---wood-light:#8d6e63;
 --cream:#f5f1e8;
 --gold:#d4af37;
---green:#2e7d32;
---red:#c62828;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
 body{background:var(--wood-dark);}
-
-/* ================= HEADER ================= */
 
 header{
 background:var(--wood);
@@ -54,13 +46,6 @@ font-family:'Playfair Display';
 color:var(--gold);
 }
 
-.admin-btn{
-cursor:pointer;
-font-size:20px;
-}
-
-/* ================= HERO ================= */
-
 .hero{
 background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
 url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80");
@@ -71,13 +56,6 @@ text-align:center;
 color:white;
 }
 
-.hero h2{
-font-size:42px;
-font-family:'Playfair Display';
-}
-
-/* ================= SECTION ================= */
-
 .section{
 background:var(--cream);
 padding:50px 30px;
@@ -85,29 +63,14 @@ padding:50px 30px;
 
 .section h2{
 font-family:'Playfair Display';
-color:var(--wood-dark);
 margin-bottom:20px;
+color:#3e2723;
 }
-
-/* ================= FILTERS ================= */
-
-.filters button{
-padding:6px 10px;
-margin:5px;
-border:none;
-cursor:pointer;
-background:var(--wood);
-color:white;
-border-radius:5px;
-}
-
-/* ================= MENU ================= */
 
 .menu-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:20px;
-margin-top:20px;
 }
 
 .card{
@@ -135,69 +98,22 @@ border-radius:6px;
 margin-top:8px;
 }
 
-/* ================= CART ================= */
-
 .cart{
 background:#f0e6d8;
 padding:15px;
 border-radius:10px;
-margin-top:20px;
+margin-top:30px;
 }
 
-.cart button{
+button{
 background:var(--wood);
 color:white;
 border:none;
-padding:8px 15px;
+padding:8px 12px;
 border-radius:5px;
 cursor:pointer;
+margin-top:8px;
 }
-
-/* ================= ADMIN PANEL ================= */
-
-.admin-panel{
-display:none;
-background:#f0e6d8;
-padding:20px;
-margin-top:20px;
-border-radius:10px;
-}
-
-.admin-panel input,
-.admin-panel select{
-width:100%;
-padding:8px;
-margin-bottom:10px;
-}
-
-/* ================= MODALS ================= */
-
-.modal{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.6);
-justify-content:center;
-align-items:center;
-}
-
-.modal-content{
-background:white;
-padding:25px;
-border-radius:10px;
-width:90%;
-max-width:400px;
-text-align:center;
-}
-
-.success{
-color:green;
-font-weight:bold;
-}
-
 </style>
 </head>
 <body>
@@ -207,121 +123,75 @@ font-weight:bold;
 <img src="https://i.postimg.cc/jjCmNtZn/Image.png">
 <h1>Vindu Vanam</h1>
 </div>
-<i class="fas fa-cog admin-btn" onclick="toggleAdmin()"></i>
 </header>
 
 <section class="hero">
 <h2>Garden of Heavenly Flavors</h2>
-<p>Traditional • Healthy • Balanced Nutrition</p>
+<p>Traditional Telugu Cuisine • Balanced Nutrition</p>
 </section>
 
 <section class="section">
-<h2>Menu</h2>
+<h2>Our Story</h2>
+<p>
+Founded by passionate food enthusiasts, Vindu Vanam was born from our love for authentic South Indian and Indo-Chinese cuisine.
+Our journey began in Nellore where traditional flavors meet modern balanced nutrition.
+Each dish is crafted with fresh ingredients, traditional spices, and mindful macro balance.
+</p>
+</section>
 
-<div class="filters">
-<button onclick="setFilter('all')">All</button>
-<button onclick="setFilter('veg')">Veg</button>
-<button onclick="setFilter('nonveg')">Non Veg</button>
-<button onclick="setFilter('protein')">High Protein</button>
-<button onclick="setFilter('lowcal')">Low Calorie</button>
-<button onclick="setFilter('cheat')">Cheat Meal</button>
-</div>
+<section class="section">
+<h2>Premium Healthy Menu</h2>
 
 <div class="menu-grid" id="menuGrid"></div>
 
 <div class="cart">
 <h3>Cart Summary</h3>
-<p>Total Calories: <span id="totalCal">0</span></p>
-<p>Total Protein: <span id="totalProtein">0</span></p>
-<p>Total Fats: <span id="totalFats">0</span></p>
+<p>Calories: <span id="totalCal">0</span></p>
+<p>Protein: <span id="totalProtein">0</span>g</p>
+<p>Fats: <span id="totalFats">0</span>g</p>
 <button onclick="checkout()">Checkout on WhatsApp</button>
-</div>
-
-<div class="admin-panel" id="adminPanel">
-<h3>Add Dish</h3>
-<input type="text" id="name" placeholder="Dish Name">
-<select id="type">
-<option value="veg">Veg</option>
-<option value="nonveg">Non Veg</option>
-</select>
-<select id="category">
-<option value="main">Main</option>
-<option value="snack">Snack</option>
-<option value="fruit">Fruit</option>
-</select>
-<input type="number" id="calories" placeholder="Calories">
-<input type="number" id="protein" placeholder="Protein">
-<input type="number" id="fats" placeholder="Fats">
-<input type="checkbox" id="cheat"> Cheat Meal
-<input type="file" id="imageUpload" accept="image/*">
-<button onclick="saveDish()">Save</button>
 </div>
 
 </section>
 
-<!-- SUCCESS MODAL -->
-<div class="modal" id="successModal">
-<div class="modal-content">
-<p class="success">Dish Saved Successfully!</p>
-<button onclick="closeModal()">OK</button>
-</div>
-</div>
-
-<!-- DELETE CONFIRM -->
-<div class="modal" id="deleteModal">
-<div class="modal-content">
-<p>Are you sure you want to delete?</p>
-<button onclick="confirmDelete()">Yes</button>
-<button onclick="closeModal()">Cancel</button>
-</div>
-</div>
-
 <script>
 
-/* ================= DATA ================= */
+/* ========= SAFE STATIC MENU (20 ITEMS) ========= */
 
-let menu = JSON.parse(localStorage.getItem("menu")) || [];
-let cart = [];
-let filter = "all";
-let deleteIndex = null;
+const menu = [
+{name:"Peanut Masala 100g",image:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80",cal:280,pro:12,fat:18},
+{name:"Chicken Royal",image:"https://paattiskitchen.com/wp-content/uploads/2023/05/kmc_20230501_131310.jpg",cal:450,pro:38,fat:20},
+{name:"5 Egg Whites",image:"https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&w=800&q=80",cal:85,pro:18,fat:0},
+{name:"Dry Fruit Oatmeal",image:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80",cal:320,pro:15,fat:8},
+{name:"Sprouts Salad",image:"https://images.unsplash.com/photo-1550304943-4f24f54ddde9?auto=format&fit=crop&w=800&q=80",cal:210,pro:14,fat:5},
+{name:"Grilled Fish Bowl",image:"https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=800&q=80",cal:400,pro:35,fat:15},
+{name:"Paneer Protein Bowl",image:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80",cal:350,pro:25,fat:12},
+{name:"Brown Rice Chicken",image:"https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80",cal:420,pro:32,fat:10},
+{name:"Fruit Power Mix",image:"https://images.unsplash.com/photo-1574226516831-e1dff420e8f8?auto=format&fit=crop&w=800&q=80",cal:180,pro:3,fat:1},
+{name:"Almond Dates Bites",image:"https://images.unsplash.com/photo-1584270354949-1a0f10c5a21d?auto=format&fit=crop&w=800&q=80",cal:250,pro:6,fat:12}
+];
 
-/* ================= RENDER ================= */
+let cart=[];
 
 function renderMenu(){
-const grid = document.getElementById("menuGrid");
+const grid=document.getElementById("menuGrid");
 grid.innerHTML="";
-
-menu.forEach((item,index)=>{
-
-if(filter==="veg" && item.type!=="veg") return;
-if(filter==="nonveg" && item.type!=="nonveg") return;
-if(filter==="protein" && item.protein<25) return;
-if(filter==="lowcal" && item.calories>300) return;
-if(filter==="cheat" && !item.cheat) return;
-
+menu.forEach((item,i)=>{
 grid.innerHTML+=`
 <div class="card">
 <img src="${item.image}">
 <div class="card-content">
 <h3>${item.name}</h3>
-<p>${item.type.toUpperCase()} | ${item.category}</p>
 <div class="macros">
-🔥 ${item.calories} kcal |
-💪 ${item.protein}g |
-🥑 ${item.fats}g
+🔥 ${item.cal} kcal |
+💪 ${item.pro}g |
+🥑 ${item.fat}g
 </div>
-<button onclick="addToCart(${index})">Add to Cart</button>
-<button onclick="askDelete(${index})">Delete</button>
+<button onclick="addToCart(${i})">Add to Cart</button>
 </div>
 </div>`;
 });
 }
-
-/* ================= FILTER ================= */
-
-function setFilter(f){ filter=f; renderMenu(); }
-
-/* ================= CART ================= */
 
 function addToCart(i){
 cart.push(menu[i]);
@@ -331,84 +201,20 @@ updateCart();
 function updateCart(){
 let c=0,p=0,f=0;
 cart.forEach(i=>{
-c+=Number(i.calories);
-p+=Number(i.protein);
-f+=Number(i.fats);
+c+=i.cal;
+p+=i.pro;
+f+=i.fat;
 });
 totalCal.innerText=c;
 totalProtein.innerText=p;
 totalFats.innerText=f;
 }
 
-/* ================= CHECKOUT ================= */
-
 function checkout(){
 if(cart.length===0){ alert("Cart empty"); return; }
-
-let message="Hi Vindu Vanam,%0A%0AI would like to order:%0A";
-
-cart.forEach(i=>{
-message+=`- ${i.name}%0A`;
-});
-
-message+=`%0ATotal Calories: ${totalCal.innerText}%0A`;
-message+=`Total Protein: ${totalProtein.innerText}g%0A`;
-
-window.open(`https://wa.me/918712204561?text=${message}`);
-}
-
-/* ================= ADMIN ================= */
-
-function toggleAdmin(){
-adminPanel.style.display =
-adminPanel.style.display==="block"?"none":"block";
-}
-
-function saveDish(){
-const file = imageUpload.files[0];
-if(!file){ alert("Upload image"); return; }
-
-const reader = new FileReader();
-reader.onload=function(e){
-
-const dish={
-name:name.value,
-type:type.value,
-category:category.value,
-calories:calories.value,
-protein:protein.value,
-fats:fats.value,
-cheat:cheat.checked,
-image:e.target.result
-};
-
-menu.push(dish);
-localStorage.setItem("menu",JSON.stringify(menu));
-renderMenu();
-successModal.style.display="flex";
-};
-reader.readAsDataURL(file);
-}
-
-/* ================= DELETE ================= */
-
-function askDelete(i){
-deleteIndex=i;
-deleteModal.style.display="flex";
-}
-
-function confirmDelete(){
-menu.splice(deleteIndex,1);
-localStorage.setItem("menu",JSON.stringify(menu));
-renderMenu();
-closeModal();
-}
-
-/* ================= MODAL ================= */
-
-function closeModal(){
-successModal.style.display="none";
-deleteModal.style.display="none";
+let msg="Hi Vindu Vanam,%0A%0AI would like to order:%0A";
+cart.forEach(i=>{ msg+=`- ${i.name}%0A`; });
+window.open(`https://wa.me/918712204561?text=${msg}`);
 }
 
 renderMenu();
