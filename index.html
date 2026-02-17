@@ -1,45 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vindu Vanam | Garden of Heavenly Flavors</title>
+<title>Vindu Vanam</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
+
+/* ================= WOOD THEME ================= */
+
 :root{
 --wood-dark:#3e2723;
 --wood:#5d4037;
 --wood-light:#8d6e63;
 --cream:#f5f1e8;
---gold:#c8a951;
---text-dark:#2e2e2e;
+--gold:#d4af37;
+--green:#2e7d32;
+--red:#c62828;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
-body{background:var(--wood-dark);color:var(--text-dark);}
+body{background:var(--wood-dark);}
 
-/* HEADER */
+/* ================= HEADER ================= */
+
 header{
 background:var(--wood);
-padding:15px 40px;
+color:white;
+padding:15px 30px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-color:white;
 }
 
 .logo{
 display:flex;
 align-items:center;
-gap:12px;
+gap:10px;
 }
 
 .logo img{
-width:60px;
-height:60px;
+width:55px;
+height:55px;
 border-radius:50%;
 border:2px solid var(--gold);
 }
@@ -47,75 +52,70 @@ border:2px solid var(--gold);
 header h1{
 font-family:'Playfair Display';
 color:var(--gold);
-font-size:26px;
 }
 
 .admin-btn{
-color:white;
-font-size:20px;
 cursor:pointer;
+font-size:20px;
 }
 
-.admin-btn:hover{color:var(--gold);}
+/* ================= HERO ================= */
 
-/* HERO */
 .hero{
 background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
 url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80");
 background-size:cover;
 background-position:center;
-padding:120px 20px;
+padding:100px 20px;
 text-align:center;
 color:white;
 }
 
 .hero h2{
-font-size:48px;
+font-size:42px;
 font-family:'Playfair Display';
-margin-bottom:15px;
 }
 
-/* SECTION */
+/* ================= SECTION ================= */
+
 .section{
 background:var(--cream);
-padding:60px 40px;
+padding:50px 30px;
 }
 
 .section h2{
 font-family:'Playfair Display';
 color:var(--wood-dark);
-margin-bottom:25px;
+margin-bottom:20px;
 }
 
-/* STORY */
-.story{
-display:flex;
-gap:40px;
-flex-wrap:wrap;
+/* ================= FILTERS ================= */
+
+.filters button{
+padding:6px 10px;
+margin:5px;
+border:none;
+cursor:pointer;
+background:var(--wood);
+color:white;
+border-radius:5px;
 }
 
-.story img{
-width:420px;
-border-radius:15px;
-box-shadow:0 8px 25px rgba(0,0,0,0.2);
-}
+/* ================= MENU ================= */
 
-/* MENU */
 .menu-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
+gap:20px;
+margin-top:20px;
 }
 
 .card{
 background:white;
-border-radius:15px;
+border-radius:12px;
 overflow:hidden;
-box-shadow:0 6px 20px rgba(0,0,0,0.15);
-transition:0.3s;
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
 }
-
-.card:hover{transform:translateY(-5px);}
 
 .card img{
 width:100%;
@@ -123,52 +123,81 @@ height:200px;
 object-fit:cover;
 }
 
-.card-content{padding:15px;}
-
-.card h3{
-font-family:'Playfair Display';
-margin-bottom:8px;
-color:var(--wood-dark);
+.card-content{
+padding:15px;
 }
 
 .macros{
 font-size:13px;
 background:#f0e6d8;
 padding:8px;
-border-radius:8px;
+border-radius:6px;
 margin-top:8px;
 }
 
-/* ADMIN PANEL */
+/* ================= CART ================= */
+
+.cart{
+background:#f0e6d8;
+padding:15px;
+border-radius:10px;
+margin-top:20px;
+}
+
+.cart button{
+background:var(--wood);
+color:white;
+border:none;
+padding:8px 15px;
+border-radius:5px;
+cursor:pointer;
+}
+
+/* ================= ADMIN PANEL ================= */
+
 .admin-panel{
 display:none;
 background:#f0e6d8;
 padding:20px;
+margin-top:20px;
 border-radius:10px;
-margin-top:30px;
 }
 
-.admin-panel input{
+.admin-panel input,
+.admin-panel select{
 width:100%;
 padding:8px;
 margin-bottom:10px;
 }
 
-/* CONTACT */
-.contact{
-background:var(--wood);
-color:white;
-padding:50px 40px;
+/* ================= MODALS ================= */
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+justify-content:center;
+align-items:center;
 }
 
-.contact h2{color:var(--gold);}
-
-footer{
-background:var(--wood-dark);
-color:white;
+.modal-content{
+background:white;
+padding:25px;
+border-radius:10px;
+width:90%;
+max-width:400px;
 text-align:center;
-padding:20px;
 }
+
+.success{
+color:green;
+font-weight:bold;
+}
+
 </style>
 </head>
 <body>
@@ -183,94 +212,207 @@ padding:20px;
 
 <section class="hero">
 <h2>Garden of Heavenly Flavors</h2>
-<p>Traditional Telugu Recipes • Balanced Nutrition • Mountain Inspired Dining</p>
+<p>Traditional • Healthy • Balanced Nutrition</p>
 </section>
 
 <section class="section">
-<h2>Our Story</h2>
-<div class="story">
-<img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80">
-<div>
-<p>Founded by passionate food enthusiasts, Vindu Vanam was born from our love for authentic South Indian and Indo-Chinese cuisine. Our journey began in the culinary-rich city of Nellore, where we discovered the magic of blending traditional recipes with innovative flavors.</p>
-<br>
-<p>Our name "Vindu Vanam" translates to "Garden of Heaven," reflecting our commitment to creating heavenly food experiences. Each dish is carefully crafted using the freshest ingredients and traditional spices passed down through generations.</p>
-<br>
-<p>We believe great food creates great moments — family dinners, celebrations, or mindful solo meals. At Vindu Vanam, we are not just cooking food; we are creating memories.</p>
-</div>
-</div>
-</section>
+<h2>Menu</h2>
 
-<section class="section">
-<h2>Our Premium Healthy Menu</h2>
+<div class="filters">
+<button onclick="setFilter('all')">All</button>
+<button onclick="setFilter('veg')">Veg</button>
+<button onclick="setFilter('nonveg')">Non Veg</button>
+<button onclick="setFilter('protein')">High Protein</button>
+<button onclick="setFilter('lowcal')">Low Calorie</button>
+<button onclick="setFilter('cheat')">Cheat Meal</button>
+</div>
 
 <div class="menu-grid" id="menuGrid"></div>
 
+<div class="cart">
+<h3>Cart Summary</h3>
+<p>Total Calories: <span id="totalCal">0</span></p>
+<p>Total Protein: <span id="totalProtein">0</span></p>
+<p>Total Fats: <span id="totalFats">0</span></p>
+<button onclick="checkout()">Checkout on WhatsApp</button>
+</div>
+
 <div class="admin-panel" id="adminPanel">
-<h3>Add New Dish</h3>
-<input type="text" id="dishName" placeholder="Dish Name">
-<input type="text" id="dishImage" placeholder="Image URL">
-<input type="text" id="dishPrice" placeholder="Price">
-<input type="text" id="dishMacros" placeholder="Macros (ex: 350 kcal | 30g Protein | 10g Fat | 40g Carbs)">
-<button onclick="addDish()">Add Dish</button>
+<h3>Add Dish</h3>
+<input type="text" id="name" placeholder="Dish Name">
+<select id="type">
+<option value="veg">Veg</option>
+<option value="nonveg">Non Veg</option>
+</select>
+<select id="category">
+<option value="main">Main</option>
+<option value="snack">Snack</option>
+<option value="fruit">Fruit</option>
+</select>
+<input type="number" id="calories" placeholder="Calories">
+<input type="number" id="protein" placeholder="Protein">
+<input type="number" id="fats" placeholder="Fats">
+<input type="checkbox" id="cheat"> Cheat Meal
+<input type="file" id="imageUpload" accept="image/*">
+<button onclick="saveDish()">Save</button>
 </div>
 
 </section>
 
-<section class="contact">
-<h2>Contact Us</h2>
-<p>📞 +91 8712204561</p>
-<p>📍 Nellore, Andhra Pradesh</p>
-<p>🕒 8:00 AM – 10:00 PM</p>
-<br>
-<iframe src="https://www.google.com/maps?q=Nellore,Andhra+Pradesh&output=embed" width="100%" height="300" style="border-radius:10px;"></iframe>
-</section>
+<!-- SUCCESS MODAL -->
+<div class="modal" id="successModal">
+<div class="modal-content">
+<p class="success">Dish Saved Successfully!</p>
+<button onclick="closeModal()">OK</button>
+</div>
+</div>
 
-<footer>
-© 2026 Vindu Vanam | Great Food Great Moments
-</footer>
+<!-- DELETE CONFIRM -->
+<div class="modal" id="deleteModal">
+<div class="modal-content">
+<p>Are you sure you want to delete?</p>
+<button onclick="confirmDelete()">Yes</button>
+<button onclick="closeModal()">Cancel</button>
+</div>
+</div>
 
 <script>
-let menu = [
-{name:"Peanut Masala 100g",image:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80",price:"₹80",macros:"280 kcal | 12g Protein | 18g Fat | 20g Carbs"},
-{name:"Chicken Royal",image:"https://paattiskitchen.com/wp-content/uploads/2023/05/kmc_20230501_131310.jpg",price:"₹220",macros:"450 kcal | 38g Protein | 20g Fat | 25g Carbs"},
-{name:"5 Egg Whites",image:"https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&w=800&q=80",price:"₹90",macros:"85 kcal | 18g Protein | 0g Fat | 2g Carbs"},
-{name:"Dry Fruit Oatmeal",image:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80",price:"₹150",macros:"320 kcal | 15g Protein | 8g Fat | 45g Carbs"},
-{name:"Sprouts Salad",image:"https://images.unsplash.com/photo-1550304943-4f24f54ddde9?auto=format&fit=crop&w=800&q=80",price:"₹120",macros:"210 kcal | 14g Protein | 5g Fat | 30g Carbs"},
-{name:"Grilled Fish Omega Bowl",image:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80",price:"₹250",macros:"400 kcal | 35g Protein | 15g Fat | 20g Carbs"}
-];
+
+/* ================= DATA ================= */
+
+let menu = JSON.parse(localStorage.getItem("menu")) || [];
+let cart = [];
+let filter = "all";
+let deleteIndex = null;
+
+/* ================= RENDER ================= */
 
 function renderMenu(){
-const grid=document.getElementById("menuGrid");
+const grid = document.getElementById("menuGrid");
 grid.innerHTML="";
-menu.forEach(item=>{
+
+menu.forEach((item,index)=>{
+
+if(filter==="veg" && item.type!=="veg") return;
+if(filter==="nonveg" && item.type!=="nonveg") return;
+if(filter==="protein" && item.protein<25) return;
+if(filter==="lowcal" && item.calories>300) return;
+if(filter==="cheat" && !item.cheat) return;
+
 grid.innerHTML+=`
 <div class="card">
 <img src="${item.image}">
 <div class="card-content">
 <h3>${item.name}</h3>
-<p>${item.price}</p>
-<div class="macros">${item.macros}</div>
+<p>${item.type.toUpperCase()} | ${item.category}</p>
+<div class="macros">
+🔥 ${item.calories} kcal |
+💪 ${item.protein}g |
+🥑 ${item.fats}g
+</div>
+<button onclick="addToCart(${index})">Add to Cart</button>
+<button onclick="askDelete(${index})">Delete</button>
 </div>
 </div>`;
 });
 }
 
+/* ================= FILTER ================= */
+
+function setFilter(f){ filter=f; renderMenu(); }
+
+/* ================= CART ================= */
+
+function addToCart(i){
+cart.push(menu[i]);
+updateCart();
+}
+
+function updateCart(){
+let c=0,p=0,f=0;
+cart.forEach(i=>{
+c+=Number(i.calories);
+p+=Number(i.protein);
+f+=Number(i.fats);
+});
+totalCal.innerText=c;
+totalProtein.innerText=p;
+totalFats.innerText=f;
+}
+
+/* ================= CHECKOUT ================= */
+
+function checkout(){
+if(cart.length===0){ alert("Cart empty"); return; }
+
+let message="Hi Vindu Vanam,%0A%0AI would like to order:%0A";
+
+cart.forEach(i=>{
+message+=`- ${i.name}%0A`;
+});
+
+message+=`%0ATotal Calories: ${totalCal.innerText}%0A`;
+message+=`Total Protein: ${totalProtein.innerText}g%0A`;
+
+window.open(`https://wa.me/918712204561?text=${message}`);
+}
+
+/* ================= ADMIN ================= */
+
 function toggleAdmin(){
-const panel=document.getElementById("adminPanel");
-panel.style.display = panel.style.display==="block"?"none":"block";
+adminPanel.style.display =
+adminPanel.style.display==="block"?"none":"block";
 }
 
-function addDish(){
-const name=document.getElementById("dishName").value;
-const image=document.getElementById("dishImage").value;
-const price=document.getElementById("dishPrice").value;
-const macros=document.getElementById("dishMacros").value;
-if(name==="") return alert("Enter dish name");
-menu.push({name:name,image:image,price:price,macros:macros});
+function saveDish(){
+const file = imageUpload.files[0];
+if(!file){ alert("Upload image"); return; }
+
+const reader = new FileReader();
+reader.onload=function(e){
+
+const dish={
+name:name.value,
+type:type.value,
+category:category.value,
+calories:calories.value,
+protein:protein.value,
+fats:fats.value,
+cheat:cheat.checked,
+image:e.target.result
+};
+
+menu.push(dish);
+localStorage.setItem("menu",JSON.stringify(menu));
 renderMenu();
+successModal.style.display="flex";
+};
+reader.readAsDataURL(file);
+}
+
+/* ================= DELETE ================= */
+
+function askDelete(i){
+deleteIndex=i;
+deleteModal.style.display="flex";
+}
+
+function confirmDelete(){
+menu.splice(deleteIndex,1);
+localStorage.setItem("menu",JSON.stringify(menu));
+renderMenu();
+closeModal();
+}
+
+/* ================= MODAL ================= */
+
+function closeModal(){
+successModal.style.display="none";
+deleteModal.style.display="none";
 }
 
 renderMenu();
+
 </script>
 
 </body>
