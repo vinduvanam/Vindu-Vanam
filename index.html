@@ -5,8 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vindu Vanam</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -14,11 +13,13 @@
 --wood:#5d4037;
 --cream:#f5f1e8;
 --gold:#d4af37;
+--light-brown:#f0e6d8;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
 body{background:var(--wood-dark);}
 
+/* HEADER */
 header{
 background:var(--wood);
 color:white;
@@ -46,27 +47,57 @@ font-family:'Playfair Display';
 color:var(--gold);
 }
 
+/* HERO */
 .hero{
-background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80");
+background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+url("hero.jpg");
 background-size:cover;
 background-position:center;
-padding:100px 20px;
+background-attachment:fixed;
+padding:150px 20px;
 text-align:center;
 color:white;
 }
 
+.hero h2{
+font-size:52px;
+font-family:'Playfair Display';
+text-shadow:2px 2px 10px rgba(0,0,0,0.7);
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:22px;
+text-shadow:1px 1px 6px rgba(0,0,0,0.6);
+}
+
+/* SECTION */
 .section{
 background:var(--cream);
-padding:50px 30px;
+padding:60px 40px;
 }
 
 .section h2{
 font-family:'Playfair Display';
-margin-bottom:20px;
+margin-bottom:25px;
 color:#3e2723;
 }
 
+/* STORY */
+.story{
+display:flex;
+gap:40px;
+flex-wrap:wrap;
+align-items:center;
+}
+
+.story img{
+width:450px;
+border-radius:15px;
+box-shadow:0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* MENU */
 .menu-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -78,7 +109,10 @@ background:white;
 border-radius:12px;
 overflow:hidden;
 box-shadow:0 5px 15px rgba(0,0,0,0.15);
+transition:0.3s;
 }
+
+.card:hover{transform:translateY(-5px);}
 
 .card img{
 width:100%;
@@ -90,16 +124,23 @@ object-fit:cover;
 padding:15px;
 }
 
+.card h3{
+font-family:'Playfair Display';
+color:#3e2723;
+margin-bottom:8px;
+}
+
 .macros{
 font-size:13px;
-background:#f0e6d8;
+background:var(--light-brown);
 padding:8px;
 border-radius:6px;
 margin-top:8px;
 }
 
+/* CART */
 .cart{
-background:#f0e6d8;
+background:var(--light-brown);
 padding:15px;
 border-radius:10px;
 margin-top:30px;
@@ -114,6 +155,21 @@ border-radius:5px;
 cursor:pointer;
 margin-top:8px;
 }
+
+/* CONTACT */
+.contact{
+background:var(--wood);
+color:white;
+padding:50px 40px;
+}
+
+.contact h2{color:var(--gold);}
+footer{
+background:var(--wood-dark);
+color:white;
+text-align:center;
+padding:20px;
+}
 </style>
 </head>
 <body>
@@ -126,17 +182,31 @@ margin-top:8px;
 </header>
 
 <section class="hero">
-<h2>Garden of Heavenly Flavors</h2>
-<p>Traditional Telugu Cuisine • Balanced Nutrition</p>
+<h2>Authentic Nutritious and Yummy Food</h2>
+<p>Wood Fired Taste • Forest Dining • Balanced Nutrition</p>
 </section>
 
 <section class="section">
 <h2>Our Story</h2>
+
+<div class="story">
+<img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80">
+
+<div>
 <p>
-Founded by passionate food enthusiasts, Vindu Vanam was born from our love for authentic South Indian and Indo-Chinese cuisine.
-Our journey began in Nellore where traditional flavors meet modern balanced nutrition.
-Each dish is crafted with fresh ingredients, traditional spices, and mindful macro balance.
+Founded by passionate food enthusiasts, Vindu Vanam was born from our love for authentic South Indian and Indo-Chinese cuisine. Our journey began in the culinary-rich city of Nellore, where we discovered the magic of blending traditional recipes with innovative flavors.
+</p><br>
+<p>
+Our name "Vindu Vanam" translates to "Garden of Heaven," reflecting our commitment to creating heavenly food experiences. Each dish is carefully crafted using the freshest ingredients, traditional spices, and cooking techniques passed down through generations.
+</p><br>
+<p>
+We believe that great food creates great moments — whether it's a family dinner, a celebration, or a simple meal enjoyed alone. Our mission is to bring these moments to your home through our delicious, high-quality dishes prepared with love and attention to detail.
+</p><br>
+<p>
+At Vindu Vanam, we're not just cooking food; we're creating memories, one dish at a time.
 </p>
+</div>
+</div>
 </section>
 
 <section class="section">
@@ -154,9 +224,21 @@ Each dish is crafted with fresh ingredients, traditional spices, and mindful mac
 
 </section>
 
-<script>
+<section class="contact">
+<h2>Contact Us</h2>
+<p>📞 +91 8712204561</p>
+<p>📍 Nellore, Andhra Pradesh</p>
+<p>🕒 8:00 AM – 10:00 PM</p>
+<br>
+<iframe src="https://www.google.com/maps?q=Nellore,Andhra+Pradesh&output=embed"
+width="100%" height="300" style="border-radius:10px;"></iframe>
+</section>
 
-/* ========= SAFE STATIC MENU (20 ITEMS) ========= */
+<footer>
+© 2026 Vindu Vanam | Great Food Great Moments
+</footer>
+
+<script>
 
 const menu = [
 {name:"Peanut Masala 100g",image:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80",cal:280,pro:12,fat:18},
