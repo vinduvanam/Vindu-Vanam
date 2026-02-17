@@ -3,115 +3,97 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vindu Vanam | Traditional Mountain Food</title>
+<title>Vindu Vanam | Garden of Heavenly Flavors</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 :root{
---wood-dark:#4e342e;
+--wood-dark:#3e2723;
+--wood:#5d4037;
 --wood-light:#8d6e63;
---cream:#fdf8f3;
---gold:#d4af37;
---veg:#2e7d32;
---nonveg:#c62828;
---protein:#1565c0;
---calories:#ef6c00;
---fats:#8e24aa;
+--cream:#f5f1e8;
+--gold:#c8a951;
+--text-dark:#2e2e2e;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
 body{
-background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80");
-background-size:cover;
-background-attachment:fixed;
-color:#333;
+background:var(--wood-dark);
+color:var(--text-dark);
 }
 
 header{
-background:var(--wood-dark);
-color:white;
-padding:15px 30px;
+background:var(--wood);
+padding:15px 40px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-}
-
-.logo{
-display:flex;
-align-items:center;
-gap:10px;
-}
-
-.logo img{
-width:60px;
-height:60px;
-border-radius:50%;
-border:2px solid var(--gold);
+color:white;
 }
 
 header h1{
 font-family:'Playfair Display';
 color:var(--gold);
-font-size:24px;
+}
+
+nav a{
+color:white;
+margin-left:20px;
+text-decoration:none;
+font-weight:500;
 }
 
 .hero{
-background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
-url("https://images.unsplash.com/photo-1523986371872-9d3ba2e2c7a3?auto=format&fit=crop&w=1600&q=80");
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80");
 background-size:cover;
 background-position:center;
-color:white;
+padding:120px 20px;
 text-align:center;
-padding:100px 20px;
+color:white;
 }
 
 .hero h2{
-font-size:42px;
+font-size:48px;
 font-family:'Playfair Display';
-margin-bottom:15px;
-}
-
-.container{
-max-width:1200px;
-margin:40px auto;
-background:rgba(255,255,255,0.95);
-padding:30px;
-border-radius:15px;
-box-shadow:0 10px 30px rgba(0,0,0,0.3);
-}
-
-h2{
-font-family:'Playfair Display';
-color:var(--wood-dark);
 margin-bottom:20px;
 }
 
-button{
-padding:6px 12px;
-border:none;
-cursor:pointer;
-border-radius:6px;
-margin:3px;
+.section{
+background:var(--cream);
+padding:60px 40px;
 }
 
-.btn-primary{background:var(--wood-dark);color:white;}
-.btn-cart{background:var(--protein);color:white;}
+.section h2{
+font-family:'Playfair Display';
+color:var(--wood-dark);
+margin-bottom:25px;
+}
+
+.story{
+display:flex;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.story img{
+width:450px;
+border-radius:15px;
+box-shadow:0 8px 25px rgba(0,0,0,0.2);
+}
 
 .menu-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:20px;
+gap:25px;
 }
 
 .card{
 background:white;
-border-radius:12px;
+border-radius:15px;
 overflow:hidden;
-box-shadow:0 6px 18px rgba(0,0,0,0.15);
-position:relative;
+box-shadow:0 6px 20px rgba(0,0,0,0.15);
 transition:0.3s;
 }
 
@@ -125,274 +107,146 @@ object-fit:cover;
 
 .card-content{padding:15px;}
 
-.badge{
-position:absolute;
-top:10px;
-right:10px;
-padding:5px 10px;
-border-radius:20px;
-font-size:11px;
-color:white;
+.card h3{
+font-family:'Playfair Display';
+margin-bottom:8px;
+color:var(--wood-dark);
 }
 
-.veg{background:var(--veg);}
-.nonveg{background:var(--nonveg);}
-
-.nutrition{
-display:flex;
-justify-content:space-between;
+.macros{
 font-size:13px;
-background:#f4ede7;
+background:#f0e6d8;
 padding:8px;
-border-radius:6px;
-margin:10px 0;
-}
-
-.highlight-section{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:10px;
-margin:20px 0;
-}
-
-.highlight{
-background:#f4ede7;
-padding:12px;
 border-radius:8px;
-text-align:center;
-font-size:13px;
-}
-
-.cart-summary{
-background:#f4ede7;
-padding:15px;
-margin-top:20px;
-border-radius:10px;
+margin-top:8px;
 }
 
 .contact{
+background:var(--wood);
+color:white;
+padding:50px 40px;
+}
+
+.contact h2{color:var(--gold);}
+
+footer{
 background:var(--wood-dark);
 color:white;
-padding:40px 20px;
-margin-top:40px;
-}
-
-.contact h3{color:var(--gold);}
-iframe{
-width:100%;
-height:300px;
-border:none;
-border-radius:10px;
-margin-top:15px;
-}
-
-.admin-panel{
-display:none;
-background:#f4ede7;
+text-align:center;
 padding:20px;
-margin-top:20px;
-border-radius:10px;
-}
-
-.admin-panel input,select{
-width:100%;
-padding:8px;
-margin-bottom:8px;
-}
-
-.login-box{
-display:none;
-position:fixed;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-background:white;
-padding:25px;
-border-radius:10px;
-box-shadow:0 5px 20px rgba(0,0,0,0.3);
 }
 </style>
 </head>
 <body>
 
 <header>
-<div class="logo">
-<img src="https://i.postimg.cc/jjCmNtZn/Image.png">
 <h1>Vindu Vanam</h1>
-</div>
-<button onclick="showLogin()">Admin</button>
+<nav>
+<a href="#home">Home</a>
+<a href="#story">Story</a>
+<a href="#menu">Menu</a>
+<a href="#contact">Contact</a>
+</nav>
 </header>
 
-<section class="hero">
-<h2>Traditional Mountain Picnic Food Experience</h2>
-<p>Wood Fired Taste • Balanced Nutrition • Nature Inspired Dining</p>
+<section class="hero" id="home">
+<h2>Garden of Heavenly Flavors</h2>
+<p>Traditional Telugu Recipes • Balanced Nutrition • Mountain Inspired Dining</p>
 </section>
 
-<div class="container">
+<section class="section" id="story">
+<h2>Our Story</h2>
+<div class="story">
+<img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80">
+<div>
+<p>Founded by passionate food enthusiasts, Vindu Vanam was born from our love for authentic South Indian and Indo-Chinese cuisine. Our journey began in the culinary-rich city of Nellore, where we discovered the magic of blending traditional recipes with innovative flavors.</p>
+<br>
+<p>Our name "Vindu Vanam" translates to "Garden of Heaven," reflecting our commitment to creating heavenly food experiences. Each dish is carefully crafted using the freshest ingredients, traditional spices, and cooking techniques passed down through generations.</p>
+<br>
+<p>We believe that great food creates great moments — whether it's a family dinner, a celebration, or a simple meal enjoyed alone. At Vindu Vanam, we're not just cooking food; we're creating memories, one dish at a time.</p>
+</div>
+</div>
+</section>
 
-<h2>Our Menu</h2>
+<section class="section" id="menu">
+<h2>Our Premium Menu</h2>
 
-<div class="highlight-section">
-<div class="highlight">💪 Protein Rich</div>
-<div class="highlight">🐟 Omega 3 Rich</div>
-<div class="highlight">⚖ Balanced Macros</div>
-<div class="highlight">🌾 Fibre Rich</div>
-<div class="highlight">🧂 Mineral Rich</div>
-<div class="highlight">🍔 Cheat Meals</div>
+<div class="menu-grid">
+
+<!-- 20 Dishes Example -->
+
+<div class="card">
+<img src="https://paattiskitchen.com/wp-content/uploads/2023/05/kmc_20230501_131310.jpg">
+<div class="card-content">
+<h3>Chicken 65</h3>
+<p>₹180</p>
+<div class="macros">🔥 420 kcal | 💪 32g Protein | 🥑 18g Fat | 🌾 15g Carbs</div>
+</div>
 </div>
 
-<div class="menu-grid" id="menuGrid"></div>
-
-<div class="cart-summary">
-<h3>🛒 Cart Macro Summary</h3>
-<p>Calories: <span id="totalCal">0</span></p>
-<p>Protein: <span id="totalProtein">0</span>g</p>
-<p>Fats: <span id="totalFats">0</span>g</p>
+<div class="card">
+<img src="https://tse1.mm.bing.net/th/id/OIP.5U9QJ9gZvGQ2uBOD3M6GnAHaE8">
+<div class="card-content">
+<h3>Idly with Chicken Curry</h3>
+<p>₹120</p>
+<div class="macros">🔥 380 kcal | 💪 28g Protein | 🥑 12g Fat | 🌾 45g Carbs</div>
+</div>
 </div>
 
-<div class="admin-panel" id="adminPanel">
-<h3>Add / Edit Item</h3>
-<input type="hidden" id="editIndex">
-<input type="text" id="name" placeholder="Item Name">
-<input type="text" id="image" placeholder="Image URL">
-<input type="number" id="price" placeholder="Price">
-<select id="type">
-<option value="veg">Veg</option>
-<option value="nonveg">Non Veg</option>
-</select>
-<input type="number" id="calories" placeholder="Calories">
-<input type="number" id="protein" placeholder="Protein">
-<input type="number" id="fats" placeholder="Fats">
-<button onclick="saveItem()" class="btn-primary">Save</button>
+<div class="card">
+<img src="https://i.pinimg.com/originals/e9/0c/fd/e90cfdcdac6d30517bf081cf1a90f200.jpg">
+<div class="card-content">
+<h3>Dosa with Chicken Curry</h3>
+<p>₹130</p>
+<div class="macros">🔥 420 kcal | 💪 30g Protein | 🥑 14g Fat | 🌾 50g Carbs</div>
+</div>
 </div>
 
+<div class="card">
+<img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<h3>Paneer Stuffed Roti</h3>
+<p>₹150</p>
+<div class="macros">🔥 300 kcal | 💪 18g Protein | 🥑 9g Fat | 🌾 40g Carbs</div>
+</div>
 </div>
 
-<div class="contact">
-<div class="container">
-<h3>Contact Us</h3>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1584270354949-1a0f10c5a21d?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<h3>Guava Special</h3>
+<p>₹70</p>
+<div class="macros">🔥 120 kcal | 💪 2g Protein | 🥑 1g Fat | 🌾 25g Carbs</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1574226516831-e1dff420e8f8?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<h3>Pomegranate Fruit Bowl</h3>
+<p>₹90</p>
+<div class="macros">🔥 150 kcal | 💪 3g Protein | 🥑 1g Fat | 🌾 35g Carbs</div>
+</div>
+</div>
+
+<!-- Add 14 more similar cards for variety -->
+<!-- You can duplicate and modify names & macros -->
+
+</div>
+</section>
+
+<section class="contact" id="contact">
+<h2>Contact Us</h2>
 <p>📞 +91 8712204561</p>
 <p>📍 Nellore, Andhra Pradesh</p>
 <p>🕒 8:00 AM – 10:00 PM</p>
-<p>💬 <a href="https://wa.me/918712204561" style="color:white;">Order on WhatsApp</a></p>
-<iframe src="https://www.google.com/maps?q=Nellore,Andhra+Pradesh&output=embed"></iframe>
-</div>
-</div>
+<br>
+<iframe src="https://www.google.com/maps?q=Nellore,Andhra+Pradesh&output=embed" width="100%" height="300" style="border-radius:10px;"></iframe>
+</section>
 
-<div class="login-box" id="loginBox">
-<h3>Admin Login</h3>
-<input type="password" id="adminPass" placeholder="Password">
-<button onclick="login()">Login</button>
-</div>
-
-<script>
-let menu = JSON.parse(localStorage.getItem("menuData")) || [
-
-{name:"Peanut Masala 100gms",image:"https://images.unsplash.com/photo-1612197522455-8a0b1cfa3c5f",price:60,type:"veg",calories:280,protein:12,fats:18},
-
-{name:"3 Idly with Chicken Curry 100gms",image:"https://tse1.mm.bing.net/th/id/OIP.5U9QJ9gZvGQ2uBOD3M6GnAHaE8",price:120,type:"nonveg",calories:380,protein:28,fats:12},
-
-{name:"2 Dosa with Chicken Curry 100gms",image:"https://i.pinimg.com/originals/e9/0c/fd/e90cfdcdac6d30517bf081cf1a90f200.jpg",price:130,type:"nonveg",calories:420,protein:30,fats:14},
-
-{name:"Pomegranate with Apple & Papaya",image:"https://images.unsplash.com/photo-1574226516831-e1dff420e8f8",price:90,type:"veg",calories:150,protein:3,fats:1},
-
-{name:"Guava Special",image:"https://images.unsplash.com/photo-1584270354949-1a0f10c5a21d",price:70,type:"veg",calories:120,protein:2,fats:1}
-
-];
-
-let cart=[];
-
-function renderMenu(){
-let grid=document.getElementById("menuGrid");
-grid.innerHTML="";
-menu.forEach((item,index)=>{
-grid.innerHTML+=`
-<div class="card">
-<img src="${item.image}">
-<div class="badge ${item.type}">${item.type.toUpperCase()}</div>
-<div class="card-content">
-<h3>${item.name}</h3>
-<p>₹${item.price}</p>
-<div class="nutrition">
-<span>🔥 ${item.calories}</span>
-<span>💪 ${item.protein}</span>
-<span>🥑 ${item.fats}</span>
-</div>
-<button class="btn-cart" onclick="addToCart(${index})">Add</button>
-<button onclick="editItem(${index})">Edit</button>
-<button onclick="deleteItem(${index})">Delete</button>
-</div>
-</div>`;
-});
-}
-
-function addToCart(i){
-cart.push(menu[i]);
-updateCart();
-}
-
-function updateCart(){
-let c=0,p=0,f=0;
-cart.forEach(i=>{
-c+=Number(i.calories);
-p+=Number(i.protein);
-f+=Number(i.fats);
-});
-totalCal.innerText=c;
-totalProtein.innerText=p;
-totalFats.innerText=f;
-}
-
-function saveItem(){
-const nameVal=document.getElementById("name").value.trim();
-const imageVal=document.getElementById("image").value.trim();
-const priceVal=document.getElementById("price").value;
-const typeVal=document.getElementById("type").value;
-const caloriesVal=document.getElementById("calories").value;
-const proteinVal=document.getElementById("protein").value;
-const fatsVal=document.getElementById("fats").value;
-const editIndexVal=document.getElementById("editIndex").value;
-
-if(nameVal===""){alert("Name required");return;}
-
-const item={name:nameVal,image:imageVal,price:priceVal,type:typeVal,calories:caloriesVal,protein:proteinVal,fats:fatsVal};
-
-if(editIndexVal===""){menu.push(item);}
-else{menu[editIndexVal]=item;}
-
-localStorage.setItem("menuData",JSON.stringify(menu));
-document.getElementById("editIndex").value="";
-renderMenu();
-}
-
-function editItem(i){
-const m=menu[i];
-document.getElementById("editIndex").value=i;
-document.getElementById("name").value=m.name;
-document.getElementById("image").value=m.image;
-document.getElementById("price").value=m.price;
-document.getElementById("type").value=m.type;
-document.getElementById("calories").value=m.calories;
-document.getElementById("protein").value=m.protein;
-document.getElementById("fats").value=m.fats;
-}
-
-function deleteItem(i){
-menu.splice(i,1);
-localStorage.setItem("menuData",JSON.stringify(menu));
-renderMenu();
-}
-
-function showLogin(){loginBox.style.display="block";}
-function login(){
-if(adminPass.value==="admin123"){
-loginBox.style.display="none";
-adminPanel.style.display="block";
-}else alert("Wrong Password");
-}
-
-renderMenu();
-</script>
+<footer>
+© 2026 Vindu Vanam | Great Food Great Moments
+</footer>
 
 </body>
 </html>
