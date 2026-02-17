@@ -6,6 +6,7 @@
 <title>Vindu Vanam | Garden of Heavenly Flavors</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 :root{
@@ -18,11 +19,9 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
-body{
-background:var(--wood-dark);
-color:var(--text-dark);
-}
+body{background:var(--wood-dark);color:var(--text-dark);}
 
+/* HEADER */
 header{
 background:var(--wood);
 padding:15px 40px;
@@ -32,18 +31,34 @@ align-items:center;
 color:white;
 }
 
+.logo{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.logo img{
+width:60px;
+height:60px;
+border-radius:50%;
+border:2px solid var(--gold);
+}
+
 header h1{
 font-family:'Playfair Display';
 color:var(--gold);
+font-size:26px;
 }
 
-nav a{
+.admin-btn{
 color:white;
-margin-left:20px;
-text-decoration:none;
-font-weight:500;
+font-size:20px;
+cursor:pointer;
 }
 
+.admin-btn:hover{color:var(--gold);}
+
+/* HERO */
 .hero{
 background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
 url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80");
@@ -57,9 +72,10 @@ color:white;
 .hero h2{
 font-size:48px;
 font-family:'Playfair Display';
-margin-bottom:20px;
+margin-bottom:15px;
 }
 
+/* SECTION */
 .section{
 background:var(--cream);
 padding:60px 40px;
@@ -71,6 +87,7 @@ color:var(--wood-dark);
 margin-bottom:25px;
 }
 
+/* STORY */
 .story{
 display:flex;
 gap:40px;
@@ -78,11 +95,12 @@ flex-wrap:wrap;
 }
 
 .story img{
-width:450px;
+width:420px;
 border-radius:15px;
 box-shadow:0 8px 25px rgba(0,0,0,0.2);
 }
 
+/* MENU */
 .menu-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -121,6 +139,22 @@ border-radius:8px;
 margin-top:8px;
 }
 
+/* ADMIN PANEL */
+.admin-panel{
+display:none;
+background:#f0e6d8;
+padding:20px;
+border-radius:10px;
+margin-top:30px;
+}
+
+.admin-panel input{
+width:100%;
+padding:8px;
+margin-bottom:10px;
+}
+
+/* CONTACT */
 .contact{
 background:var(--wood);
 color:white;
@@ -140,102 +174,49 @@ padding:20px;
 <body>
 
 <header>
+<div class="logo">
+<img src="https://i.postimg.cc/jjCmNtZn/Image.png">
 <h1>Vindu Vanam</h1>
-<nav>
-<a href="#home">Home</a>
-<a href="#story">Story</a>
-<a href="#menu">Menu</a>
-<a href="#contact">Contact</a>
-</nav>
+</div>
+<i class="fas fa-cog admin-btn" onclick="toggleAdmin()"></i>
 </header>
 
-<section class="hero" id="home">
+<section class="hero">
 <h2>Garden of Heavenly Flavors</h2>
 <p>Traditional Telugu Recipes • Balanced Nutrition • Mountain Inspired Dining</p>
 </section>
 
-<section class="section" id="story">
+<section class="section">
 <h2>Our Story</h2>
 <div class="story">
 <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80">
 <div>
 <p>Founded by passionate food enthusiasts, Vindu Vanam was born from our love for authentic South Indian and Indo-Chinese cuisine. Our journey began in the culinary-rich city of Nellore, where we discovered the magic of blending traditional recipes with innovative flavors.</p>
 <br>
-<p>Our name "Vindu Vanam" translates to "Garden of Heaven," reflecting our commitment to creating heavenly food experiences. Each dish is carefully crafted using the freshest ingredients, traditional spices, and cooking techniques passed down through generations.</p>
+<p>Our name "Vindu Vanam" translates to "Garden of Heaven," reflecting our commitment to creating heavenly food experiences. Each dish is carefully crafted using the freshest ingredients and traditional spices passed down through generations.</p>
 <br>
-<p>We believe that great food creates great moments — whether it's a family dinner, a celebration, or a simple meal enjoyed alone. At Vindu Vanam, we're not just cooking food; we're creating memories, one dish at a time.</p>
+<p>We believe great food creates great moments — family dinners, celebrations, or mindful solo meals. At Vindu Vanam, we are not just cooking food; we are creating memories.</p>
 </div>
 </div>
 </section>
 
-<section class="section" id="menu">
-<h2>Our Premium Menu</h2>
+<section class="section">
+<h2>Our Premium Healthy Menu</h2>
 
-<div class="menu-grid">
+<div class="menu-grid" id="menuGrid"></div>
 
-<!-- 20 Dishes Example -->
-
-<div class="card">
-<img src="https://paattiskitchen.com/wp-content/uploads/2023/05/kmc_20230501_131310.jpg">
-<div class="card-content">
-<h3>Chicken 65</h3>
-<p>₹180</p>
-<div class="macros">🔥 420 kcal | 💪 32g Protein | 🥑 18g Fat | 🌾 15g Carbs</div>
-</div>
+<div class="admin-panel" id="adminPanel">
+<h3>Add New Dish</h3>
+<input type="text" id="dishName" placeholder="Dish Name">
+<input type="text" id="dishImage" placeholder="Image URL">
+<input type="text" id="dishPrice" placeholder="Price">
+<input type="text" id="dishMacros" placeholder="Macros (ex: 350 kcal | 30g Protein | 10g Fat | 40g Carbs)">
+<button onclick="addDish()">Add Dish</button>
 </div>
 
-<div class="card">
-<img src="https://tse1.mm.bing.net/th/id/OIP.5U9QJ9gZvGQ2uBOD3M6GnAHaE8">
-<div class="card-content">
-<h3>Idly with Chicken Curry</h3>
-<p>₹120</p>
-<div class="macros">🔥 380 kcal | 💪 28g Protein | 🥑 12g Fat | 🌾 45g Carbs</div>
-</div>
-</div>
-
-<div class="card">
-<img src="https://i.pinimg.com/originals/e9/0c/fd/e90cfdcdac6d30517bf081cf1a90f200.jpg">
-<div class="card-content">
-<h3>Dosa with Chicken Curry</h3>
-<p>₹130</p>
-<div class="macros">🔥 420 kcal | 💪 30g Protein | 🥑 14g Fat | 🌾 50g Carbs</div>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80">
-<div class="card-content">
-<h3>Paneer Stuffed Roti</h3>
-<p>₹150</p>
-<div class="macros">🔥 300 kcal | 💪 18g Protein | 🥑 9g Fat | 🌾 40g Carbs</div>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1584270354949-1a0f10c5a21d?auto=format&fit=crop&w=800&q=80">
-<div class="card-content">
-<h3>Guava Special</h3>
-<p>₹70</p>
-<div class="macros">🔥 120 kcal | 💪 2g Protein | 🥑 1g Fat | 🌾 25g Carbs</div>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1574226516831-e1dff420e8f8?auto=format&fit=crop&w=800&q=80">
-<div class="card-content">
-<h3>Pomegranate Fruit Bowl</h3>
-<p>₹90</p>
-<div class="macros">🔥 150 kcal | 💪 3g Protein | 🥑 1g Fat | 🌾 35g Carbs</div>
-</div>
-</div>
-
-<!-- Add 14 more similar cards for variety -->
-<!-- You can duplicate and modify names & macros -->
-
-</div>
 </section>
 
-<section class="contact" id="contact">
+<section class="contact">
 <h2>Contact Us</h2>
 <p>📞 +91 8712204561</p>
 <p>📍 Nellore, Andhra Pradesh</p>
@@ -247,6 +228,50 @@ padding:20px;
 <footer>
 © 2026 Vindu Vanam | Great Food Great Moments
 </footer>
+
+<script>
+let menu = [
+{name:"Peanut Masala 100g",image:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80",price:"₹80",macros:"280 kcal | 12g Protein | 18g Fat | 20g Carbs"},
+{name:"Chicken Royal",image:"https://paattiskitchen.com/wp-content/uploads/2023/05/kmc_20230501_131310.jpg",price:"₹220",macros:"450 kcal | 38g Protein | 20g Fat | 25g Carbs"},
+{name:"5 Egg Whites",image:"https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&w=800&q=80",price:"₹90",macros:"85 kcal | 18g Protein | 0g Fat | 2g Carbs"},
+{name:"Dry Fruit Oatmeal",image:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80",price:"₹150",macros:"320 kcal | 15g Protein | 8g Fat | 45g Carbs"},
+{name:"Sprouts Salad",image:"https://images.unsplash.com/photo-1550304943-4f24f54ddde9?auto=format&fit=crop&w=800&q=80",price:"₹120",macros:"210 kcal | 14g Protein | 5g Fat | 30g Carbs"},
+{name:"Grilled Fish Omega Bowl",image:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80",price:"₹250",macros:"400 kcal | 35g Protein | 15g Fat | 20g Carbs"}
+];
+
+function renderMenu(){
+const grid=document.getElementById("menuGrid");
+grid.innerHTML="";
+menu.forEach(item=>{
+grid.innerHTML+=`
+<div class="card">
+<img src="${item.image}">
+<div class="card-content">
+<h3>${item.name}</h3>
+<p>${item.price}</p>
+<div class="macros">${item.macros}</div>
+</div>
+</div>`;
+});
+}
+
+function toggleAdmin(){
+const panel=document.getElementById("adminPanel");
+panel.style.display = panel.style.display==="block"?"none":"block";
+}
+
+function addDish(){
+const name=document.getElementById("dishName").value;
+const image=document.getElementById("dishImage").value;
+const price=document.getElementById("dishPrice").value;
+const macros=document.getElementById("dishMacros").value;
+if(name==="") return alert("Enter dish name");
+menu.push({name:name,image:image,price:price,macros:macros});
+renderMenu();
+}
+
+renderMenu();
+</script>
 
 </body>
 </html>
